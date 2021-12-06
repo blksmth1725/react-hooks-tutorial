@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import "./App.css";
 
 import { useForm } from "../src/utils/hookHelpers";
+import Hello from "./components/Hello";
 
 function App() {
   const [count, setCount] = useState(0);
-  const [values, handleChange] = useForm("");
+  const [showHello, setShowHello] = useState(true);
+  const [values, handleChange] = useForm({ email: "", password: "" });
 
   const decrement = () => {
     setCount(count - 1);
@@ -15,8 +17,14 @@ function App() {
     setCount(count + 1);
   };
 
+  const toggle = () => {
+    setShowHello(!showHello);
+  };
+
   return (
     <div className="App">
+      <button onClick={toggle}>Toggle</button>
+      {showHello && <Hello />}
       <div>
         <button onClick={decrement}>-</button>
         <button onClick={increment}>+</button>
