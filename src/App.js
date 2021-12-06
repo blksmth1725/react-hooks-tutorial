@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 import { useForm } from "../src/utils/hookHelpers";
@@ -20,6 +20,16 @@ function App() {
   const toggle = () => {
     setShowHello(!showHello);
   };
+
+  useEffect(() => {
+    const onMouseMove = (e) => {
+      console.log(e);
+    };
+    window.addEventListener("mousemove", onMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", onMouseMove);
+    };
+  }, []);
 
   return (
     <div className="App">
