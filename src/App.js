@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./App.css";
 
-import { useForm } from "../src/utils/hookHelpers";
+import { useFetchFact, useForm } from "../src/utils/hookHelpers";
 import Hello from "./components/Hello";
 
 function App() {
@@ -21,18 +21,21 @@ function App() {
     setShowHello(!showHello);
   };
 
-  useEffect(() => {
-    const onMouseMove = (e) => {
-      console.log(e);
-    };
-    window.addEventListener("mousemove", onMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", onMouseMove);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const onMouseMove = (e) => {
+  //     console.log(e);
+  //   };
+  //   window.addEventListener("mousemove", onMouseMove);
+  //   return () => {
+  //     window.removeEventListener("mousemove", onMouseMove);
+  //   };
+  // }, []);
+
+  const { data, loading } = useFetchFact("http://numbersapi.com/4");
 
   return (
     <div className="App">
+      <div>{loading ? "loading..." : data}</div>
       <button onClick={toggle}>Toggle</button>
       {showHello && <Hello />}
       <div>
