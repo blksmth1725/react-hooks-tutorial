@@ -17,7 +17,7 @@ export const useForm = (initialValues) => {
 export const useFetchFact = (url) => {
   const [state, setState] = useState({ data: null, loading: false });
   useEffect(() => {
-    setState({ data: null, laoding: false });
+    setState((state) => ({ data: state.data, laoding: false }));
     fetch(url)
       .then((res) => res.text())
       .then((y) => {
