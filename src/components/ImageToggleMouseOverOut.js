@@ -6,23 +6,21 @@ function ImageToggleMouseOverOut({ primaryImage, secondaryImage, name }) {
 
   return (
     <div>
-      {imageMapSection[name] &&
-        (console.log("ImageSectionMap =>", imageMapSection[name]),
-        (
-          <img
-            onMouseOver={() => {
-              imageRef.current.src = secondaryImage;
-            }}
-            onMouseOut={() => {
-              imageRef.current.src = primaryImage;
-            }}
-            src={primaryImage}
-            alt=""
-            ref={imageRef}
-            width={imageMapSection[name].imageSpecs.width}
-            height={imageMapSection[name].imageSpecs.height}
-          />
-        ))}
+      {imageMapSection[name] && (
+        <img
+          onMouseOver={() => {
+            imageRef.current.src = secondaryImage;
+          }}
+          onMouseOut={() => {
+            imageRef.current.src = primaryImage;
+          }}
+          src={primaryImage}
+          alt=""
+          ref={imageRef}
+          width={imageMapSection[name].imageSpecs.width}
+          height={imageMapSection[name].imageSpecs.height}
+        />
+      )}
     </div>
   );
 }
