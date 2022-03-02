@@ -4,16 +4,19 @@ import { imageMapSection } from "../utils/maps";
 function ImageToggleMouseOverOut({ primaryImage, secondaryImage, name }) {
   const imageRef = useRef(null);
 
+  const mouseOver = () => {
+    imageRef.current.src = secondaryImage;
+  };
+  const mouseOut = () => {
+    imageRef.current.src = primaryImage;
+  };
+
   return (
     <div>
       {imageMapSection[name] && (
         <img
-          onMouseOver={() => {
-            imageRef.current.src = secondaryImage;
-          }}
-          onMouseOut={() => {
-            imageRef.current.src = primaryImage;
-          }}
+          onMouseOver={mouseOver}
+          onMouseOut={mouseOut}
           src={primaryImage}
           alt=""
           ref={imageRef}
