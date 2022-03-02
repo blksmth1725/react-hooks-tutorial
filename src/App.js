@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+//import React, { useState, useEffect } from "react";
+import ImageMouseOverOut from "./components/ImageMouseOverOut";
 import "./App.css";
 
 import { useFetchFact, useForm } from "../src/utils/hookHelpers";
@@ -31,31 +32,31 @@ function App() {
   //   };
   // }, []);
 
-  const [count, setCount] = useState(
-    JSON.parse(localStorage.getItem("count"))
-  );
-  const { data, loading } = useFetchFact(
-    `http://numbersapi.com/${count}/trivia`
-  );
+  // const [count, setCount] = useState(
+  //   JSON.parse(localStorage.getItem("count"))
+  // );
+  // const { data, loading } = useFetchFact(
+  //   `http://numbersapi.com/${count}/trivia`
+  // );
 
-  useEffect(() => {
-    localStorage.setItem("count", JSON.stringify(count));
-  }, [count]);
+  // useEffect(() => {
+  //   localStorage.setItem("count", JSON.stringify(count));
+  // }, [count]);
 
-  const changeFact = () => {
-    setCount((count) => count + 1);
-  };
+  // const changeFact = () => {
+  //   setCount((count) => count + 1);
+  // };
 
-  const changeFactBack = () => {
-    setCount((count) => count - 1);
-  };
+  // const changeFactBack = () => {
+  //   setCount((count) => count - 1);
+  // };
 
   return (
     <div className="App">
-      <div>Fact # {count}</div>
-      <button onClick={changeFactBack}>Previous Fact</button>
+      {/* <div>Fact # {count}</div> */}
+      {/* <button onClick={changeFactBack}>Previous Fact</button>
       <button onClick={changeFact}>Next fact</button>
-      <div>{loading ? "loading..." : data}</div>
+      <div>{loading ? "loading..." : data}</div> */}
       {/* <button onClick={toggle}>Toggle</button>
       {showHello && <Hello />}
       <div>
@@ -65,18 +66,24 @@ function App() {
       </div> */}
 
       <div>
-        <input
-          onChange={handleChange}
-          name="email"
-          value={values.email}
-          type="email"
-        />
-        <input
-          onChange={handleChange}
-          name="password"
-          value={values.password}
-          type="password"
-        />
+        <div>
+          <input
+            onChange={handleChange}
+            name="email"
+            placeholder="Email"
+            value={values.email}
+            type="email"
+          />
+          <input
+            onChange={handleChange}
+            name="password"
+            placeholder="Password"
+            value={values.password}
+            type="password"
+          />
+        </div>
+
+        <ImageMouseOverOut />
       </div>
     </div>
   );
