@@ -2,7 +2,7 @@
 import ImageMouseOverOut from "./components/ImageMouseOverOut";
 import "./App.css";
 
-import { useFetchFact, useForm } from "../src/utils/hookHelpers";
+import { useForm } from "../src/utils/hookHelpers";
 // import Hello from "./components/Hello";
 
 function App() {

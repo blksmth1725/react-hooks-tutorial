@@ -18,10 +18,10 @@ function ImageToggleMouseOverOut({ primaryImage, secondaryImage, name }) {
           onMouseOver={mouseOver}
           onMouseOut={mouseOut}
           src={primaryImage}
-          alt=""
           ref={imageRef}
           width={imageMapSection[name].imageSpecs.width}
           height={imageMapSection[name].imageSpecs.height}
+          alt=""
         />
       )}
     </div>
